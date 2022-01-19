@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+	
+	
+	<category>
+	    <pattern>HOLA</pattern>
+	    <template>Hola. 😃 <delay>2</delay>
+	    ¿Quieres que te recomiende planes para tus vacaciones?
+	   
+	    
+	    </template>
+	   
+	</category> 
+	
+	<category>
+        <that>_ VACACIONES</that>
+        <pattern>SI</pattern>
+        <template> ¿Cuál sera tu proximo destino?</template>
+    </category>
+
+	
+   
+
+<!--<category>
+    <pattern>*</pattern>
+    <template>Muy bien. Cuando vas a viajar a <star/>?</template>
+</category>
+-->
+
+
+<category>
+    <that>_ DESTINO</that>
+    <pattern> *</pattern>
+    <think><set name="ciudad"><star/></set>  </think>
+    <template>Estupendo!. Que te gustaría hacer mientras estás en <set name="topic"><formal><star/></formal></set>?
+    
+    
+    </template>
+
+</category>
+
+
+<topic name="roma">
+<!--Categoria ARTE -->
+    
+    <category>
+        <pattern>_ ALGO CULTURAL</pattern>
+        
+        <template>Muy bien, ¿te gusta la historia o la pintura? </template>
+    </category>
+
+
+    <category>
+        <pattern>HISTORIA</pattern>
+     
+        <template>   
+        <think><set name="arte">HISTORIA</set></think>
+        Genial! Pues aqui un plan si te gusta la historia
+    
+        <link>
+            <text>Tour coliseo y arena de gladiadores</text>
+            <url>https://www.civitatis.com/es/roma/tour-coliseo-arena-gladiadores/</url>
+        </link>
+        
+      </template>
+    
+    </category>
+    <category>
+        <pattern>PINTURA</pattern>
+     
+        <template>   
+        <think><set name="arte">PINTURA</set></think>
+        Genial! Pues aqui un plan si te gusta la pintura
+    
+        <link>
+            <text>Visita a la galeria Borghese</text>
+               <url>https://www.civitatis.com/es/roma/tour-coliseo-arena-gladiadores/</url>
+        </link>
+        
+      </template>
+    
+    </category>
+    
+    
+<!--Categoria GASTRONOMIA -->
+
+    <category>
+        <pattern>_ GASTRONOMIA</pattern>
+        <template>Muy bien, aqui un plan gastronómico para conocer la ciudad
+         <link>
+        <text>Tour gastronómico por el barrio del Trastevere</text>
+        <url>https://www.civitatis.com/es/roma/tour-gastronomico-barrio-trastevere/</url>
+    </link>
+         </template>
+       
+        
+    </category>
+<!--Categoria GASTRONOMIA -->    
+
+    <category>
+        
+        <pattern>_ ALGO ORIGINAL</pattern>
+        <template>Muy bien. Aqui tienes una excursión de varios dias con paseo en barco
+             <link>
+               <text>Excursión a Ponza y paseo en barco</text>
+               <url>https://www.civitatis.com/es/roma/excursion-orvieto-asis/</url>
+           </link>
+           
+           </template>
+    </category>
+    
+    
+ 
+    
+</topic>
+<category>
+    <pattern>ADIOS</pattern>
+    <template>Adios, !Que tengas un buen viaje!</template>
+</category>
+
+</aiml>
