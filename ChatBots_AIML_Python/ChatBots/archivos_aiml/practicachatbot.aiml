@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+	<category>
+        <!--<that>_VACACIONES</that>-->
+        <pattern>SI</pattern>
+        <template><srai>VACACIONES</srai> ¿Cuál sera tu proximo destino?</template>
+    </category>
+
+<category>
+       <!--<that>_DESTINO</that>-->
+    <pattern>VOY A VIAJAR A *</pattern>
+    <think><set name="ciudad"><star/></set>  </think>
+    <template>Estupendo!. Que te gustaría hacer mientras estás en <set name="topic"><formal><star/></formal></set>?
+    
+    
+    </template>
+
+</category>
+
+
+<topic name="roma">
+<!--Categoria ARTE -->
+    
+    <category>
+        <pattern>_ ALGO CULTURAL</pattern>
+        
+        <template>Muy bien, ¿te gusta la historia o la pintura? </template>
+    </category>
+
+
+    <category>
+        <pattern>HISTORIA</pattern>
+     
+        <template>   
+        <think><set name="categoria">HISTORIA</set></think>
+        Genial! Pues aqui un plan si te gusta la historia
+        Tour coliseo y arena de gladiadores
+        
+        
+      </template>
+    
+    </category>
+    <category>
+        <pattern>PINTURA</pattern>
+     
+        <template>   
+        <think><set name="categoria">PINTURA</set></think>
+        Genial! Pues aqui un plan si te gusta la pintura
+         Visita a la galeria Borghese
+       
+        
+      </template>
+    
+    </category>
+    
+    
+<!--Categoria GASTRONOMIA -->
+
+    <category>
+        <pattern>_ GASTRONOMIA</pattern>
+         <think><set name="categoria">GASTRONOMIA</set></think>
+        <template>Muy bien, aqui un plan gastronómico para conocer la ciudad
+        Tour gastronómico por el barrio del Trastevere
+        
+         </template>
+       
+        
+    </category>
+<!--Categoria GASTRONOMIA -->    
+
+    <category>
+        
+        <pattern>_ ALGO ORIGINAL</pattern>
+         <think><set name="categoria">OTROS</set></think>
+        <template>Muy bien. Aqui tienes una excursión de varios dias con paseo en barco.
+        Excursión a Ponza y paseo en barco
+           </template>
+    </category>
+    
+    
+ 
+    
+</topic>
+<category>
+    <pattern>ADIOS</pattern>
+    <template>Adios, !Que tengas un buen viaje!</template>
+</category>
+
+</aiml>
