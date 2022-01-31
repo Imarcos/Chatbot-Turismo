@@ -1,87 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+	
+	
 	<category>
-        <!--<that>_VACACIONES</that>-->
-        <pattern>SI</pattern>
-        <template><srai>VACACIONES</srai> ¿Cuál sera tu proximo destino?</template>
+	    <pattern>HOLA</pattern>
+	    <template>Hola.
+	    ¿Quieres que te recomiende planes originales para tus vacaciones?
+	   
+	    
+	    </template>
+	   
+	</category> 
+	
+
+    <category>
+      
+        <pattern>*</pattern>
+        <template>
+            <think><set name="respuesta"><star/></set></think>
+            <condition name="respuesta" value="si">Cuál será tu proximo destino?</condition>
+            <condition name="respuesta" value="no">Vale, pues que tengas un buen día.</condition>
+        </template>
     </category>
 
+
+ 
+
 <category>
-       <!--<that>_DESTINO</that>-->
+   
     <pattern>VOY A VIAJAR A *</pattern>
-    <think><set name="ciudad"><star/></set>  </think>
-    <template>Estupendo!. Que te gustaría hacer mientras estás en <set name="topic"><formal><star/></formal></set>?
+    
+    <template> 
+    <think><set name="ciudad"><star/></set></think>
+    Muy bien quieres viajar a <star></star> Quieres que te recomiende planes de gastronomía, de arte o otros?
     
     
     </template>
 
 </category>
+<category>
+  
+    <pattern>ME GUSTA *</pattern>
+    <template>
+        <think>
+            <set name="actividad"><star/></set>
+        </think>
+        <condition name="actividad">
+            <li value="arte">te gusta la historia o la pintura?
+                <think><set name="topic">arte</set></think>
+            </li>
+            <li value="gastronomía">
+                Muy bien prefieres algo típico o eres más de gastrobares?
+                <think><set name="topic">gastronomía</set></think>
+            </li>
+            <li value="otros">
+                Muy bien, prefieres música o naturaleza?
+                <think><set name="topic">otros</set></think>
+            </li>
+        </condition>
+    </template>
+    
+
+</category>
+<category>
+    <pattern>dime actividad</pattern>
+    <template>actividad: <get name="actividad"></get></template>
+</category>
+<category>
+    <pattern>dime respuesta</pattern>
+    <template>respuesta: <get name="respuesta"></get></template>
+</category>
+<category>
+    <pattern>dime ciudad</pattern>
+    <template>ciudad: <get name="ciudad"></get></template>
+</category>
 
 
-<topic name="roma">
+<topic name="arte">
 <!--Categoria ARTE -->
     
     <category>
-        <pattern>_ ALGO CULTURAL</pattern>
-        
-        <template>Muy bien, ¿te gusta la historia o la pintura? </template>
+         <that>te gusta la historia o la pintura</that>
+        <pattern>*</pattern>
+      
+        <template> 
+            <think>
+                <set name="categoria"><star/></set>
+            </think>
+            <condition name="categoria">
+                <li value="historia">
+                    Genial. Pues aquí tienes un plan si te gusta la historia
+                    <random>
+                        <li>Tour nocturno por el Coliseo</li>
+                        <li>Visita guiada por las termas de Caracalla y el Circo Máximo</li>  
+                        <li>Excursión a Pompeya</li>
+                    </random>
+                </li>
+                <li value="pintura">
+                    Genial! Pues aqui un plan si te gusta pasar horas y horas visitando museos  
+                    <random>
+                        <li>Visita a la galeria Borghese</li>
+                        <li>Visita guiada por los Museos Capitolinos y alrededores</li> 
+                        <li>Tour del arte urbano por Roma</li>
+                    </random>
+                </li>
+            </condition>
+        </template>
     </category>
 
 
-    <category>
-        <pattern>HISTORIA</pattern>
-     
-        <template>   
-        <think><set name="categoria">HISTORIA</set></think>
-        Genial! Pues aqui un plan si te gusta la historia
-        Tour coliseo y arena de gladiadores
-        
-        
-      </template>
-    
-    </category>
-    <category>
-        <pattern>PINTURA</pattern>
-     
-        <template>   
-        <think><set name="categoria">PINTURA</set></think>
-        Genial! Pues aqui un plan si te gusta la pintura
-         Visita a la galeria Borghese
-       
-        
-      </template>
-    
-    </category>
-    
+   
+ </topic>   
     
 <!--Categoria GASTRONOMIA -->
-
+<topic name="gastronomía">
     <category>
-        <pattern>_ GASTRONOMIA</pattern>
-         <think><set name="categoria">GASTRONOMIA</set></think>
-        <template>Muy bien, aqui un plan gastronómico para conocer la ciudad
-        Tour gastronómico por el barrio del Trastevere
+        <that>Muy bien prefieres algo típico o eres más de gastrobares</that>
+        <pattern>*</pattern>
+        <template>
+          <think>
+                <set name="categoria"><star/></set>
+            </think>
+            <condition name="categoria">
+                <li value="tipico">
+                    Genial. Pues te recomiendo un plan para probar comida tradicional: 
+                    <random>
+                          <li>Tour gastronómico por el barrio del Trastevere</li>
+                          <li>Recorrido por los puestos de comida callejera de Roma con un guía local</li>
+                          <li>Clase de preparación de pasta y tiramisú en la Fontana di Trevi</li>
+                    </random>
+                      
+                     
+                   
+                </li>
+                <li value="moderno">
+                     
+                    <random>
+                        <li>Hard Rock café en Roma sin colas</li>
+                       
+                    </random>
+                </li>
+            </condition>
         
          </template>
        
         
     </category>
-<!--Categoria GASTRONOMIA -->    
 
+</topic>
+<!--Categoria original -->    
+
+
+<topic name="otros">
     <category>
-        
-        <pattern>_ ALGO ORIGINAL</pattern>
-         <think><set name="categoria">OTROS</set></think>
-        <template>Muy bien. Aqui tienes una excursión de varios dias con paseo en barco.
-        Excursión a Ponza y paseo en barco
+        <that>Muy bien, prefieres música o naturaleza</that>
+        <pattern>*</pattern>
+        <template>
+            <think>
+                <set name="categoria"><star/></set>
+            </think>
+            <condition name="categoria">
+                <li value="naturaleza">
+                  Castel Gandolfo Lake Kayak y Swim Tour
+              
+            
+                </li>
+                <li value ="música">
+                 Muy bien, pues si te gusta la opera te recomiendo: Concierto de ópera en el Palacio Santa Chiara
+
+                </li>
+            </condition>
+           
            </template>
     </category>
     
     
- 
+    
     
 </topic>
+    
+
+ 
+    
+
 <category>
     <pattern>ADIOS</pattern>
     <template>Adios, !Que tengas un buen viaje!</template>
