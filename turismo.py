@@ -1,4 +1,4 @@
-import requests
+mport requests
 
 # This function will pass your text to the machine learning model
 # and return the top result with the highest confidence
@@ -35,6 +35,11 @@ def answer_question():
         print ("Muy bien. Aqui tienes planes de arte y cultura")
     elif answerclass == "Otros":
         print ("Muy bien. Aqui tienes planes que se salen de lo comun")
+    elif answerclass == "si":
+        print("Cual será tu próximo destino?")
+    elif answerclass == "no":
+        print("Vale, pues que tengas un buen día.")
+
   
 
 
