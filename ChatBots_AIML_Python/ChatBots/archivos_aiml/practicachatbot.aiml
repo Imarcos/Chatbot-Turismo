@@ -58,6 +58,7 @@
         Muy bien prefieres algo típico o eres más de gastrobares?
     </template>
 </category>
+<!-- 
 <category>
   
     <pattern>ME GUSTA *</pattern>
@@ -82,6 +83,7 @@
     
 
 </category>
+-->
 <category>
     <pattern>dime actividad</pattern>
     <template>actividad: <get name="actividad"></get></template>
@@ -154,6 +156,26 @@
 <topic name="Gastronomia">
 
     <category>
+        <pattern>TIPICO</pattern>
+        <template>
+            Genial. Pues te recomiendo un plan para probar comida tradicional: 
+
+            <random>
+                <li>Tour gastronómico por el barrio del Trastevere</li>
+                <li>Recorrido por los puestos de comida callejera de Roma con un guía local</li>
+                <li>Clase de preparación de pasta y tiramisú en la Fontana di Trevi</li>
+          </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>MODERNO</pattern>
+        <template>
+            Hard Rock café en Roma sin colas
+        </template>
+    </category>
+<!--
+    <category>
         <that>Muy bien prefieres algo típico o eres más de gastrobares</that>
         <pattern>GASTRONOMIA</pattern>
         <template>
@@ -185,7 +207,7 @@
        
         
     </category>
-
+-->
 </topic>
 <!--Categoria original -->    
 
@@ -193,7 +215,7 @@
 <topic name="otros">
     <category>
         <that>Muy bien, prefieres música o naturaleza</that>
-        <pattern>*</pattern>
+        <pattern>OTROS</pattern>
         <template>
             <think>
                 <set name="categoria"><star/></set>
