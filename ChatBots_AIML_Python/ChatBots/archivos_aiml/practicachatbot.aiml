@@ -42,7 +42,7 @@
     
     <template> 
   
-   Quieres que te recomiende planes de gastronomía, de arte o otros?
+   Quieres que te recomiende planes de gastronomía o de arte ?
     
     
     </template>
@@ -56,6 +56,24 @@
            <set name="topic">Gastronomia</set>   
         </think>
         Muy bien prefieres algo típico o eres más de gastrobares?
+    </template>
+</category>
+<category>
+    <pattern>ARTE</pattern>
+    <template>
+        <think>
+            <set name="topic">Arte</set> 
+        </think>
+        te gusta la historia o la pintura?
+    </template>
+</category>
+<category>
+    <pattern>OTROS</pattern>
+    <template>
+        <think>
+            <set name="topic">Otros</set> 
+        </think>
+       te gusta la naturaleza o música?
     </template>
 </category>
 <!-- 
@@ -104,7 +122,7 @@
     <category>
         <pattern>ARTE</pattern>
         <template>
-            te gusta la historia o la pintura
+         
         </template>
     </category>
     <category>
@@ -118,6 +136,17 @@
             </random>
         </template>
     </category>
+   <category>
+       <pattern>PINTURA</pattern>
+       <template>
+        Genial! Pues aqui un plan si te gusta pasar horas y horas visitando museos:   
+        <random>
+            <li>Visita a la galeria Borghese</li>
+            <li>Visita guiada por los Museos Capitolinos y alrededores</li> 
+            <li>Tour del arte urbano por Roma</li>
+        </random>
+       </template>
+   </category>
     <!-- 
     <category>
          <that>te gusta la historia o la pintura</that>
@@ -156,9 +185,9 @@
 <topic name="Gastronomia">
 
     <category>
-        <pattern>GASTRONOMIA</pattern>
+        <pattern>TIPICO</pattern>
         <template>
-            Genial. Pues te recomiendo un plan para probar comida tradicional: 
+            Genial. Pues te recomiendo un plan para probar comida tradicional:<break> </break>
 
             <random>
                 <li>Tour gastronómico por el barrio del Trastevere</li>
@@ -171,6 +200,7 @@
     <category>
         <pattern>MODERNO</pattern>
         <template>
+            Genial. Pues te recomiendo un plan para probar la gastronomía más moderna de la ciudad: 
             Hard Rock café en Roma sin colas
         </template>
     </category>
@@ -214,23 +244,20 @@
 
 <topic name="otros">
     <category>
-        <that>Muy bien, prefieres música o naturaleza</that>
-        <pattern>OTROS</pattern>
+       
+        <pattern>NATURALEZA</pattern>
         <template>
-            <think>
-                <set name="categoria"><star/></set>
-            </think>
-            <condition name="categoria">
-                <li value="naturaleza">
-                  Castel Gandolfo Lake Kayak y Swim Tour
+          
+                 <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
               
             
-                </li>
+               
                 <li value ="música">
-                 Muy bien, pues si te gusta la opera te recomiendo: Concierto de ópera en el Palacio Santa Chiara
+                 Muy bien, pues si te gusta la opera te recomiendo: 
+                 <li>Concierto de ópera en el Palacio Santa Chiara</li>
 
                 </li>
-            </condition>
+        
            
            </template>
     </category>
