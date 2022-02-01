@@ -13,7 +13,16 @@
 	   
 	</category> 
 	
+    <category>
+        <pattern>SI</pattern>
+        <template>Cuál sera tu proximo destino?</template>
+    </category>
 
+    <category>
+    <pattern>NO</pattern>
+    <template>Vale, pues que tengas un buen día</template>
+    </category>
+<!--
     <category>
       
         <pattern>*</pattern>
@@ -23,21 +32,31 @@
             <condition name="respuesta" value="no">Vale, pues que tengas un buen día.</condition>
         </template>
     </category>
-
+-->
 
  
 
 <category>
    
-    <pattern>VOY A VIAJAR A *</pattern>
+    <pattern>CIUDAD</pattern>
     
     <template> 
-    <think><set name="ciudad"><star/></set></think>
-    Muy bien quieres viajar a <star></star> Quieres que te recomiende planes de gastronomía, de arte o otros?
+  
+   Quieres que te recomiende planes de gastronomía, de arte o otros?
     
     
     </template>
 
+</category>
+
+<category>
+    <pattern>GASTRONOMIA</pattern>
+    <template>
+        <think>
+           <set name="topic">Gastronomia</set>   
+        </think>
+        Muy bien prefieres algo típico o eres más de gastrobares?
+    </template>
 </category>
 <category>
   
@@ -47,16 +66,16 @@
             <set name="actividad"><star/></set>
         </think>
         <condition name="actividad">
-            <li value="arte">te gusta la historia o la pintura?
-                <think><set name="topic">arte</set></think>
+            <li value="Arte">te gusta la historia o la pintura?
+                <think><set name="topic">Arte</set></think>
             </li>
-            <li value="gastronomía">
+            <li value="Gastronomia">
                 Muy bien prefieres algo típico o eres más de gastrobares?
-                <think><set name="topic">gastronomía</set></think>
+                <think><set name="topic">Gastronomia</set></think>
             </li>
-            <li value="otros">
+            <li value="Otros">
                 Muy bien, prefieres música o naturaleza?
-                <think><set name="topic">otros</set></think>
+                <think><set name="topic">Otros</set></think>
             </li>
         </condition>
     </template>
@@ -73,11 +92,11 @@
 </category>
 <category>
     <pattern>dime ciudad</pattern>
-    <template>ciudad: <get name="ciudad"></get></template>
+    <template>ciudad: <get name="Ciudad"></get></template>
 </category>
 
 
-<topic name="arte">
+<topic name="Arte">
 <!--Categoria ARTE -->
     
     <category>
@@ -114,7 +133,7 @@
  </topic>   
     
 <!--Categoria GASTRONOMIA -->
-<topic name="gastronomía">
+<topic name="Gastronomia">
     <category>
         <that>Muy bien prefieres algo típico o eres más de gastrobares</that>
         <pattern>*</pattern>

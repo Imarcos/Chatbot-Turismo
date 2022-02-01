@@ -1,4 +1,4 @@
-mport requests
+import requests
 
 # This function will pass your text to the machine learning model
 # and return the top result with the highest confidence
@@ -25,7 +25,7 @@ def answer_question():
     answerclass = answer["class_name"]
     confidence = answer["confidence"]
 
-    if confidence < 70:
+    if confidence < 75:
         print("No entiendo la pregunta. Pregúntame otra cosa!")
     if answerclass == "Ciudad":
         print ("quiero visitar roma")
