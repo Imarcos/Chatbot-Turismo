@@ -100,6 +100,24 @@
 <!--Categoria ARTE -->
     
     <category>
+        <pattern>ARTE</pattern>
+        <template>
+            te gusta la historia o la pintura
+        </template>
+    </category>
+    <category>
+        <pattern>HISTORIA</pattern>
+        <template>
+            Genial, pues aqui tienes un plan si te gusta la historia:
+            <random>
+                <li>Tour nocturno por el Coliseo</li>
+                <li>Visita guiada por las termas de Caracalla y el Circo Máximo</li>  
+                <li>Excursión a Pompeya</li>
+            </random>
+        </template>
+    </category>
+    <!-- 
+    <category>
          <that>te gusta la historia o la pintura</that>
         <pattern>*</pattern>
       
@@ -128,15 +146,16 @@
         </template>
     </category>
 
-
+-->
    
  </topic>   
     
 <!--Categoria GASTRONOMIA -->
 <topic name="Gastronomia">
+
     <category>
         <that>Muy bien prefieres algo típico o eres más de gastrobares</that>
-        <pattern>*</pattern>
+        <pattern>GASTRONOMIA</pattern>
         <template>
           <think>
                 <set name="categoria"><star/></set>
