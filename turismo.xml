@@ -5,115 +5,274 @@
 	
 	<category>
 	    <pattern>HOLA</pattern>
-	    <template>Hola. 😃 <delay>2</delay>
-	    ¿Quieres que te recomiende planes para tus vacaciones?
+	    <template>Hola. <delay>2</delay>
+	    ¿Quieres que te recomiende planes originales para tus vacaciones?
 	   
 	    
 	    </template>
 	   
 	</category> 
 	
-	<category>
-        <that>_ VACACIONES</that>
+    <category>
         <pattern>SI</pattern>
-        <template> ¿Cuál sera tu proximo destino?</template>
+        <template>Cuál sera tu proximo destino?</template>
     </category>
 
-	
-   
-
-<!--<category>
-    <pattern>*</pattern>
-    <template>Muy bien. Cuando vas a viajar a <star/>?</template>
-</category>
+    <category>
+    <pattern>NO</pattern>
+    <template>Vale, pues que tengas un buen día</template>
+    </category>
+<!--
+    <category>
+      
+        <pattern>*</pattern>
+        <template>
+            <think><set name="respuesta"><star/></set></think>
+            <condition name="respuesta" value="si">Cuál será tu proximo destino?</condition>
+            <condition name="respuesta" value="no">Vale, pues que tengas un buen día.</condition>
+        </template>
+    </category>
 -->
 
+ 
 
 <category>
-    <that>_ DESTINO</that>
-    <pattern> *</pattern>
-    <think><set name="ciudad"><star/></set>  </think>
-    <template>Estupendo!. Que te gustaría hacer mientras estás en <set name="topic"><formal><star/></formal></set>?
+   
+    <pattern>CIUDAD</pattern>
+    
+    <template> 
+  
+   Quieres que te recomiende planes de gastronomía o de arte ?
     
     
     </template>
 
 </category>
 
+<category>
+    <pattern>GASTRONOMIA</pattern>
+    <template>
+        <think>
+           <set name="topic">Gastronomia</set>   
+        </think>
+        Muy bien prefieres algo típico o eres más de gastrobares?
+    </template>
+</category>
+<category>
+    <pattern>ARTE</pattern>
+    <template>
+        <think>
+            <set name="topic">Arte</set> 
+        </think>
+        te gusta la historia o la pintura?
+    </template>
+</category>
+<category>
+    <pattern>OTROS</pattern>
+    <template>
+        <think>
+            <set name="topic">Otros</set> 
+        </think>
+        Aqui tiene un plan si te gusta la naturaleza y el deporte
+        <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
+    </template>
+</category>
+<!-- 
+<category>
+  
+    <pattern>ME GUSTA *</pattern>
+    <template>
+        <think>
+            <set name="actividad"><star/></set>
+        </think>
+        <condition name="actividad">
+            <li value="Arte">te gusta la historia o la pintura?
+                <think><set name="topic">Arte</set></think>
+            </li>
+            <li value="Gastronomia">
+                Muy bien prefieres algo típico o eres más de gastrobares?
+                <think><set name="topic">Gastronomia</set></think>
+            </li>
+            <li value="Otros">
+                Muy bien, prefieres música o naturaleza?
+                <think><set name="topic">Otros</set></think>
+            </li>
+        </condition>
+    </template>
+    
 
-<topic name="roma">
+</category>
+-->
+<category>
+    <pattern>dime actividad</pattern>
+    <template>actividad: <get name="actividad"></get></template>
+</category>
+<category>
+    <pattern>dime respuesta</pattern>
+    <template>respuesta: <get name="respuesta"></get></template>
+</category>
+<category>
+    <pattern>dime ciudad</pattern>
+    <template>ciudad: <get name="Ciudad"></get></template>
+</category>
+
+
+<topic name="Arte">
 <!--Categoria ARTE -->
     
     <category>
-        <pattern>_ ALGO CULTURAL</pattern>
-        
-        <template>Muy bien, ¿te gusta la historia o la pintura? </template>
+        <pattern>ARTE</pattern>
+        <template>
+         
+        </template>
     </category>
-
-
     <category>
         <pattern>HISTORIA</pattern>
-     
-        <template>   
-        <think><set name="arte">HISTORIA</set></think>
-        Genial! Pues aqui un plan si te gusta la historia
-    
-        <link>
-            <text>Tour coliseo y arena de gladiadores</text>
-            <url>https://www.civitatis.com/es/roma/tour-coliseo-arena-gladiadores/</url>
-        </link>
-        
-      </template>
-    
+        <template>
+            Genial, pues aqui tienes un plan si te gusta la historia:<break></break>
+            <random>
+                <li>Tour nocturno por el Coliseo</li>
+                <li>Visita guiada por las termas de Caracalla y el Circo Máximo</li>  
+                <li>Excursión a Pompeya</li>
+            </random>
+        </template>
     </category>
+   <category>
+       <pattern>PINTURA</pattern>
+       <template>
+        Genial! Pues aqui un plan si te gusta pasar horas y horas visitando museos:   
+        <random>
+            <li>Visita a la galeria Borghese</li>
+            <li>Visita guiada por los Museos Capitolinos y alrededores</li> 
+            <li>Tour del arte urbano por Roma</li>
+        </random>
+       </template>
+   </category>
+    <!-- 
     <category>
-        <pattern>PINTURA</pattern>
-     
-        <template>   
-        <think><set name="arte">PINTURA</set></think>
-        Genial! Pues aqui un plan si te gusta la pintura
-    
-        <link>
-            <text>Visita a la galeria Borghese</text>
-               <url>https://www.civitatis.com/es/roma/tour-coliseo-arena-gladiadores/</url>
-        </link>
-        
-      </template>
-    
+         <that>te gusta la historia o la pintura</that>
+        <pattern>*</pattern>
+      
+        <template> 
+            <think>
+                <set name="categoria"><star/></set>
+            </think>
+            <condition name="categoria">
+                <li value="historia">
+                    Genial. Pues aquí tienes un plan si te gusta la historia
+                    <random>
+                        <li>Tour nocturno por el Coliseo</li>
+                        <li>Visita guiada por las termas de Caracalla y el Circo Máximo</li>  
+                        <li>Excursión a Pompeya</li>
+                    </random>
+                </li>
+                <li value="pintura">
+                    Genial! Pues aqui un plan si te gusta pasar horas y horas visitando museos  
+                    <random>
+                        <li>Visita a la galeria Borghese</li>
+                        <li>Visita guiada por los Museos Capitolinos y alrededores</li> 
+                        <li>Tour del arte urbano por Roma</li>
+                    </random>
+                </li>
+            </condition>
+        </template>
     </category>
-    
+
+-->
+   
+ </topic>   
     
 <!--Categoria GASTRONOMIA -->
+<topic name="Gastronomia">
 
     <category>
-        <pattern>_ GASTRONOMIA</pattern>
-        <template>Muy bien, aqui un plan gastronómico para conocer la ciudad
-         <link>
-        <text>Tour gastronómico por el barrio del Trastevere</text>
-        <url>https://www.civitatis.com/es/roma/tour-gastronomico-barrio-trastevere/</url>
-    </link>
+        <pattern>TIPICO</pattern>
+        <template>
+            Genial. Pues te recomiendo un plan para probar comida tradicional:<break> </break>
+
+            <random>
+                <li>Tour gastronómico por el barrio del Trastevere</li>
+                <li>Recorrido por los puestos de comida callejera de Roma con un guía local</li>
+                <li>Clase de preparación de pasta y tiramisú en la Fontana di Trevi</li>
+          </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>MODERNO</pattern>
+        <template>
+            Genial. Pues te recomiendo un plan para probar la gastronomía más moderna de la ciudad: 
+            Hard Rock café en Roma sin colas
+        </template>
+    </category>
+<!--
+    <category>
+        <that>Muy bien prefieres algo típico o eres más de gastrobares</that>
+        <pattern>GASTRONOMIA</pattern>
+        <template>
+          <think>
+                <set name="categoria"><star/></set>
+            </think>
+            <condition name="categoria">
+                <li value="tipico">
+                    Genial. Pues te recomiendo un plan para probar comida tradicional: 
+                    <random>
+                          <li>Tour gastronómico por el barrio del Trastevere</li>
+                          <li>Recorrido por los puestos de comida callejera de Roma con un guía local</li>
+                          <li>Clase de preparación de pasta y tiramisú en la Fontana di Trevi</li>
+                    </random>
+                      
+                     
+                   
+                </li>
+                <li value="moderno">
+                     
+                    <random>
+                        <li>Hard Rock café en Roma sin colas</li>
+                       
+                    </random>
+                </li>
+            </condition>
+        
          </template>
        
         
     </category>
-<!--Categoria GASTRONOMIA -->    
+-->
+</topic>
+<!--Categoria original -->    
 
+
+<topic name="otros">
     <category>
-        
-        <pattern>_ ALGO ORIGINAL</pattern>
-        <template>Muy bien. Aqui tienes una excursión de varios dias con paseo en barco
-             <link>
-               <text>Excursión a Ponza y paseo en barco</text>
-               <url>https://www.civitatis.com/es/roma/excursion-orvieto-asis/</url>
-           </link>
-           
+       
+        <pattern>NATURALEZA</pattern>
+        <template>
+          
+                 <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
+              
+        </template>
+    </category>
+    <category>
+       
+        <pattern>MUSICA</pattern>
+        <template>
+          
+                 Muy bien, pues si te gusta la opera te recomiendo: 
+                 <li>Concierto de ópera en el Palacio Santa Chiara</li>
+             
+                  
            </template>
     </category>
     
     
- 
     
 </topic>
+    
+
+ 
+    
+
 <category>
     <pattern>ADIOS</pattern>
     <template>Adios, !Que tengas un buen viaje!</template>

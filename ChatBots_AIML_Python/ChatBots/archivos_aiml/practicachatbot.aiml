@@ -67,16 +67,7 @@
         te gusta la historia o la pintura?
     </template>
 </category>
-<category>
-    <pattern>OTROS</pattern>
-    <template>
-        <think>
-            <set name="topic">Otros</set> 
-        </think>
-        Aqui tiene un plan si te gusta la naturaleza y el deporte
-        <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
-    </template>
-</category>
+
 <!-- 
 <category>
   
@@ -188,7 +179,7 @@
     <category>
         <pattern>TIPICO</pattern>
         <template>
-            Genial. Pues te recomiendo un plan para probar comida tradicional:<break> </break>
+            Genial. Pues te recomiendo un plan para probar comida tradicional:
 
             <random>
                 <li>Tour gastronómico por el barrio del Trastevere</li>
@@ -240,42 +231,11 @@
     </category>
 -->
 </topic>
-<!--Categoria original -->    
+  
 
 
-<topic name="otros">
-    <category>
-       
-        <pattern>NATURALEZA</pattern>
-        <template>
-          
-                 <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
-              
-        </template>
-    </category>
-    <category>
-       
-        <pattern>MUSICA</pattern>
-        <template>
-          
-                 Muy bien, pues si te gusta la opera te recomiendo: 
-                 <li>Concierto de ópera en el Palacio Santa Chiara</li>
-             
-                  
-           </template>
-    </category>
-    
-    
-    
-</topic>
+
     
 
- 
-    
-
-<category>
-    <pattern>ADIOS</pattern>
-    <template>Adios, !Que tengas un buen viaje!</template>
-</category>
 
 </aiml>
