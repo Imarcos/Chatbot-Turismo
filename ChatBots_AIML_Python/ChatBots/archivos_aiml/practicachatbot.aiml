@@ -73,7 +73,8 @@
         <think>
             <set name="topic">Otros</set> 
         </think>
-       te gusta la naturaleza o música?
+        Aqui tiene un plan si te gusta la naturaleza y el deporte
+        <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
     </template>
 </category>
 <!-- 
@@ -250,18 +251,19 @@
           
                  <li> Castel Gandolfo Lake Kayak y Swim Tour</li>
               
-            
-               
-                <li value ="música">
+        </template>
+    </category>
+    <category>
+       
+        <pattern>MUSICA</pattern>
+        <template>
+          
                  Muy bien, pues si te gusta la opera te recomiendo: 
                  <li>Concierto de ópera en el Palacio Santa Chiara</li>
-
-                </li>
-        
-           
+             
+                  
            </template>
     </category>
-    
     
     
     
