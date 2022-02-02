@@ -3,8 +3,7 @@ He creado este chatbot para sugerencias de planes interesantes y originales cuan
 ## Parte I: enfoque Top-Down
 
 
-He programado el chatbot usando el cliente de Pandorabots. El bot pregunta al usuario la ciudad donde va a viajar y acontinuación pregunta por sus gustos.Si prefiere un plan cultural (como museos, galerias de arte o rutas historicas), le preguntará si le gusta la historia o la pintura y ofrece un plan en funcion de la respuesta. Tambien puede preferir un plan gastronómico e igual le ofrecera un plan o bien puede optar por un plan más original, como tours paranormales, excursiones en barco etc..
-
+He programado el chatbot usando el cliente de Pandorabots. El bot pregunta al usuario la ciudad donde va a viajar y acontinuación pregunta por sus gustos.Si prefiere un plan cultural (como museos, galerias de arte o rutas historicas), le preguntará si le gusta la historia o la pintura y ofrece un plan en funcion de la respuesta. Tambien puede preferir un plan gastronómico e igual le pregunta si prefiere comida tradicional o moderna.
 
 Al hacerlo he notado que las principales ventajas que proporcina este cliente es que es muy intuitivo y amigable, ya que puedes probar rapidamente el codigo en AIML y obtener una simulación parecida al resultado final, además de poder añadir elementos html como links, emoticonos e imagenes.
 La principal desventaja que le veo es que aiml es muy estricto. Para poder seguir el flujo de la conversación las respuestas pasadas al bot deben coincidir con el pattern, no obviando faltas de ortografia. Es posible redirigir la respuestas mediante las variables, la etiqueta that. El resultado es que la conversación resulta natural.
