@@ -19,3 +19,5 @@ En esta tercera parte he combinado el aiml con el codigo en program-y en jupyter
 Tras probar estos tres modelos podemos concluir que el tercer enfoque es lo mejor para obtener un asistente conversacional que se "parezca" a un ser humano. Pandorabots es muy intuitivo y amigable, ya que puedes probar rapidamente el codigo en AIML y obtener una simulación parecida al resultado final, además de que la interfaz es parecida a una ventana de chat, y se pueden mostrar elementos html como links, emoticonos e imagenes.
 La principal desventaja que le veo es que aiml es muy estricto. Para poder seguir el flujo de la conversación las respuestas pasadas al bot deben coincidir con el pattern, no obviando faltas de ortografia. Aunque,es posible redirigir la respuestas mediante las variables, la etiqueta that. 
 El segundo enfoque solo clasifica las respuesta sin tener en cuenta el dialogo con el usuario. 
+
+Enlace al video demostración: https://drive.google.com/file/d/1pQNsUAZnKyJovENZL-vTlhmNnIXWJbWD/view?usp=sharing
